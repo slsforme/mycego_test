@@ -9,13 +9,36 @@
     {% block main %}
         <div class="w-90 h-100 d-flex align-items-center justify-content-center">
             <div class="files-container">
+                {% for file in files %}
                 <div class="card" style="width: 18rem;">
                     <img src="..." class="card-img-top" alt="file img">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <button type="submit" class="p-2 w-100 bg-black text-white submit-button">Скачать файл</button>
+                      <h5 class="card-title">Название: {{ file.name }}</h5>
+                      <p class="card-text">
+                        {% if file.type == 'dir' %}
+                            Тип ресурса: <strong>Директория</strong>
+                        {% elif file.type == 'file' %}
+                            Тип ресурса: <strong>Файл</strong><br>
+                            Размер ресурса: {{ file.size }} <br>
+                            Тип файла: {{ file.MIME_type }}
+                        {% endif %}
+                        <br>Путь до ресурса внутри диска:<br> {{ file.path }} <br>
+
+
+                      </p>
+                      <a href="#" class="btn btn-primary bg-black" role="button">Скачать файл</a>
+                      <!-- TODO: в href добавить ссылку на скачивание - сделать в views async функцию с GET запросом по данной ссылке
+                       + Вывести картинку для каждого файла
+                       + проверить работоспособность кэша
+                       + реализовать фильтрацию по типам файлов 
+                       + реализовать Возможность скачивания нескольких файлов одновременно.
+                       + добавить <h1> на 1 и 2 страницах 
+                       + документировать всё, оптимизировать код, раскидать необходимые файлы по папкам
+                       + в README.md написать, чтобы было реализовано в каждый из дней, а также расписать, как запустить данный проект -->
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
+        
     {% endblock main%}
