@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+    {% load static %}
+    {% block links %}
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        <script src="{% static 'app/js/script.js' %}" defer></script>
+    {% endblock links %}
+   
+    {% block title %}app{% endblock title%}
+        
+    {% block main %}
+            <div class="w-90 h-100 d-flex align-items-center justify-content-center">
+                <div class="form-container w-50 h-50 d-flex justify-content-center align-items-center flex-column">
+                    <h1>Введите ссылку</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="p-2 w-100 bg-black text-white submit-button">Получить файлы</button>
+                    </form> 
+                </div>
+            </div>
+    {% endblock main%}

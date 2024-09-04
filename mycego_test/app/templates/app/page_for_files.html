@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+    {% load static %}
+    {% block links %}
+        <link rel="stylesheet" href="{% static 'app/css/page_for_files.css' %}">
+    {% endblock links %}
+   
+    {% block title %}app{% endblock title%}
+        
+    {% block main %}
+        <div class="w-90 h-100 d-flex align-items-center justify-content-center">
+            <div class="files-container">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="file img">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <button type="submit" class="p-2 w-100 bg-black text-white submit-button">Скачать файл</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock main%}

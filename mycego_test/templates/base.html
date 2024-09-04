@@ -1,0 +1,25 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "inc/_links.html" %} <!-- Загружаем базовые ссылки для шрифтов -->
+    {% block links %}
+        {% comment "Можно реализовать доп. ссылки" %}
+        {% endcomment %}
+    {% endblock links %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <main class="w-100 h-100">
+        {% block main %}
+            {% comment "Здесь будет находится основной контент" %}
+            {% endcomment %}
+        {% endblock main %}
+    </main>
+</body>
+</html>
