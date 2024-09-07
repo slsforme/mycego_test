@@ -72,7 +72,6 @@ async def home(request: HttpRequest) -> Union[render, redirect]:
                     error_message = 'Вы неправильно ввели ссылку на Yandex Disk.'
         else:
             form = LinkForm()
-            error_message = 'Вы неправильно ввели ссылку на Yandex Disk.'
 
         return render(request, 'app/index.html', { 'form': form, 'error_message': error_message } )
     except Exception as e:
@@ -125,8 +124,8 @@ def filtered_page(request: HttpRequest, filter_string: str) -> render:
     хранящей в себе MIME - тип и проводим по ней фильтрацию.
 
     :param request: запрос со стороны пользователя
-    :param filter_string: фильтр
     :type request: HttpRequest
+    :param filter_string: фильтр
     :type filter_string: str
     :return: render страницы page-for-files 
     :rtype: render 
@@ -163,6 +162,6 @@ def filtered_page(request: HttpRequest, filter_string: str) -> render:
         return render(request, 'app/page_for_files.html', { "files": files })
     except Exception as e:
         settings.LOGGER.error(f"Error occured, while rendering home page: {e} (error)")
-        return render(request, 'app/error.html',  { 'status': HTTPStatus.BAD_REQUEST , 'description': HTTPStatus.BAD_REQUEST.description })  # TODO: Сделать страницу с error или же просто в контекст передать response status и вывести сообщение об этом
+        return render(request, 'app/error.html',  { 'status': HTTPStatus.BAD_REQUEST , 'description': HTTPStatus.BAD_REQUEST.description }) 
 
 

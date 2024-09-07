@@ -11,7 +11,19 @@ from .handlers import exception_handler, request_handler, url_builder
 @exception_handler("Error occurred while getting response from Yandex Disk API")
 async def get_href(disk_link: str) -> Optional[str]:
     """
-    
+    Данная функция отвечает за получение данных 
+    с Yandex Disk API. Если данные уже ранее были кэшированы,
+    то они берутся из него по ключу и возвращаются.
+    В ином случае, отправляется запрос на endpoint API,
+    который в себе содержит public key Яндекс Диска,
+    ранее данным пользователем. После получения данных 
+    происходит их кэширование, чтобы не отправлять
+    лишние запросы к Yandex Disk API и возвращается.
+
+    :param disk_link: Ссылка на Диск пользователя.
+    :type disk_link: str
+    :return: Метаданные о Диске.
+    :rtype: str
     """
     if cache.get(disk_link) is not None:
         settings.LOGGER.info(f"Data was from {disk_link} previously cached. (info)")
@@ -24,9 +36,21 @@ async def get_href(disk_link: str) -> Optional[str]:
 
 
 @exception_handler("Error occurred while getting download link from Yandex Disk API")
-async def get_download_link(public_key: str, path: Optional[str] = None) -> Optional[str]:
+async def get_download_link(public_key: str, path: Optional[str] = None) -> str:
     """
-
+    Данная функция отвечает за получение ссылки на скачивание ресурса.
+    Сначала проверяется, есть ли в аргументах путь до ресурса,
+    если нет, то он просто не включается в параметры запроса.
+    В параметры всегда обязательно входит публичный ключ ресурса,
+    по которому будет запрошена ссылка на скачивание.
+    При успешном запросе возвращается ссылка на скачивание.
+    
+    :param public_key: Публичный ключ ресурса.
+    :type public_key: str  
+    :param path: Путь до ресурса внутри Диска.
+    :type path: str | None
+    :return: Данные с ссылкой для скачивания.
+    :rtype: str
     """
     params: Dict = { 'public_key': public_key }
     if path is not None:
@@ -37,9 +61,20 @@ async def get_download_link(public_key: str, path: Optional[str] = None) -> Opti
 
 
 @exception_handler("Error occurred while parsing data, which were gotten from Yandex Disk API")
-async def get_data(data: Dict[str, Any]) -> Optional[List[Dict]]:
+async def get_data(data: Dict[str, Any]) -> List[Dict]:
     """
-
+    Данная фукнция отвечает за парсинг даты из сериализованного ответа
+    от сервера в формате json. По ключу _embedded получаем данные из запроса, 
+    из которых извлекаем все ресурсы из Диска по ключу items. 
+    В результате возвращается лист с каждым элементом из parsed_items.
+    В случае, если данные не удалось получить по данному ключу, 
+    возвращается пустой лист или словарь.
+    
+    :param data: Словарь с данными, полученный с Yandex Disk API.
+    :type data: Dict[str, Any]
+    :return: Лист со словарями данных, содержащие в себе
+     метаданные о файлах.
+    :rtype: List[Dict]
     """
     parsed_items = data.get('_embedded', {}).get('items', [])
     return [item for item in parsed_items]

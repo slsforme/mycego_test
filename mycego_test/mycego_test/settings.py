@@ -46,7 +46,6 @@ INSTALLED_APPS = [
 
     # external libs
     'bootstrap5',
-    'debug_toolbar',
 
 ]
 
@@ -58,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mycego_test.urls'
@@ -125,10 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# TODO: сменить на ру и регион на Европу
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
