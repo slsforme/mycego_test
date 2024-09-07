@@ -28,15 +28,19 @@
 		5. `sudo apt install -y python3.12`
   
 - For MacOS users:
-		(if brew not installed: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`)
+		(if brew not installed:
+  
+  `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+  )
 
   1. `brew update`
 		
   2. `brew install python@3.12`
 		
   3. `export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"`
-		
-  4.`source ~/.zshrc  # or source ~/.bash_profile or source ~/.bashrc`
+
+  4. `source ~/.zshrc  # or source ~/.bash_profile or source ~/.bashrc`
+	
 download pip (if it's not automatically downloaded with python):
 
 	for Windows users:
