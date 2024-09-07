@@ -60,7 +60,6 @@ async def home(request: HttpRequest) -> Union[render, redirect]:
             form = LinkForm(request.POST)
             if form.is_valid():
                 link: str = form.cleaned_data["link"]
-                print(link)
                 if re.match(YANDEX_DISK_PATTERN, link):
                     data: Union[str, None] = await get_href(link)
                     if data is None:
@@ -150,8 +149,6 @@ def filtered_page(request: HttpRequest, filter_string: str) -> render:
             ))
         finally:
             loop.close()
-
-        print(file_metadata)
 
         download_links: List = asyncio.run(handle_download_links(data))
 
