@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpRequest
 from django_redis import get_redis_connection
+from django.core.cache import cache
 
 from typing import Dict, List, Union, Optional
 import asyncio
@@ -59,13 +60,14 @@ async def home(request: HttpRequest) -> Union[render, redirect]:
             form = LinkForm(request.POST)
             if form.is_valid():
                 link: str = form.cleaned_data["link"]
+                print(link)
                 if re.match(YANDEX_DISK_PATTERN, link):
                     data: Union[str, None] = await get_href(link)
                     if data is None:
                         form = LinkForm()
                     else:
                         data: Union[List, None] = await get_data(data)
-                        request.session['data'] = data
+                        cache.set('data', data)
                         return redirect('page-for-files')
                 else:
                     form = LinkForm()
@@ -91,7 +93,7 @@ async def page_for_files(request: HttpRequest) -> render:
     :rtype: render 
     """
     try:
-        data: List = request.session.get('data', [])
+        data: List = cache.get('data')
         file_metadata: List = [
                 *(await asyncio.gather(*[
                     extract_field(data, 'name'),
@@ -131,7 +133,7 @@ def filtered_page(request: HttpRequest, filter_string: str) -> render:
     :rtype: render 
     """
     try:
-        data: List = request.session.get('data', [])
+        data: List = cache.get('data')
 
         file_metadata: List = []
 
