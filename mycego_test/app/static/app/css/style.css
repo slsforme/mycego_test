@@ -5,6 +5,10 @@
 
 body{
     background: linear-gradient(to right, #bbd2c5, #536976); 
+    display: flex;
+    justify-content: center; /* Центрирует по горизонтали */        align-items: center; /* Центрирует по вертикали */
+    height: 100vh; /* Полная высота экрана */
+    margin: 0; /* Убирает отступы по умолчанию */
 }
 
 :root{

@@ -10,7 +10,6 @@ body{
 }
 
 .files-container{
-    margin-top: 15%;
     height: 90%;
     width: 80%;
     display: grid;
@@ -20,9 +19,11 @@ body{
 
 .card{
     border-radius: 30px;
-    height: 75% !important;
 }
 
+button{
+    width: 80%;
+}
 
 a[role="button"]{
     border: none !important;
@@ -34,3 +35,38 @@ a[role="button"]{
 a[role="button"]:hover{
     background-color: #37454e !important;
 }
+
+.menu {
+    position: fixed; 
+    padding: 10px 3rem 10px 3rem; 
+    background: black;
+    border: 1px solid white; 
+    color: white;
+    border-radius: 15px;
+    z-index: 10000;
+   }
+
+a{
+    text-decoration: none;
+    transition: 0.5s ease-out background-color;
+}
+
+a:hover{
+    background-color: #37454e !important;
+    color: white;
+}
+
+select{
+    width: 25rem !important;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 4px;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+select:hover{
+    border: 2px solid black;
+}
+

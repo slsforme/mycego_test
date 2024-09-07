@@ -8,8 +8,12 @@
     {% block title %}app{% endblock title%}
         
     {% block main %}
+            {% if error_message is not None %}
+                <script>alert('{{ error_message }}')</script>
+            {% endif %} 
             <div class="w-90 h-100 d-flex align-items-center justify-content-center">
                 <div class="form-container w-50 h-50 d-flex justify-content-center align-items-center flex-column">
+                    <h1 style="text-align: center; padding-top: 10%; font-size: xxx-large; font-weight: 500; font-family: 'Roboto-Mono', sans-serif;">Скачать файлы из Yandex Disk</h1>
                     <h1>Введите ссылку</h1>
                     <form method="post">
                         {% csrf_token %}
