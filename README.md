@@ -40,10 +40,12 @@ download pip (if it's not automatically downloaded with python):
 
 	for Linux users:
 
-		for Arch, Manjaro, Artix users:
+	for Arch, Manjaro, Artix users:
+
 			`sudo pacman -S python-pip`
   
-		for Ubuntu, Debian, Mint Users:
+	for Ubuntu, Debian, Mint Users:
+
 			`sudo apt install python3-pip`
   
 	for MacOS users:
