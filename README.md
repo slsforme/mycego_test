@@ -54,21 +54,31 @@ download pip (if it's not automatically downloaded with python):
   
 2. git clone https://github.com/slsforme/mycego_test.git (ensure, that you downloaded git before)
 3. activate virtual enviroment:
-		Windows:
-			1.`python -m venv env`
-			Activation:			
-			for cmd:
-				`env\Scripts\activate`
-			for PowerShell:
-				`.\env\Scripts\Activate.ps1`
-		Linux:
-			1. python3 -m venv env
-			Activation:
-			source env/bin/activate
-		MacOS:
-			1. `python3 -m venv env 
-			Activation:
-			3. `source env/bin/activate`
+	Windows:
+
+		`python -m venv env`
+	Activation:			
+	for cmd:
+
+		`env\Scripts\activate`
+
+	for PowerShell:
+		`.\env\Scripts\Activate.ps1`
+
+	Linux:
+
+		`python3 -m venv env`
+   
+	Activation:
+
+		`source env/bin/activate`
+
+	MacOS:
+
+		`python3 -m venv env`
+	Activation:
+
+		`source env/bin/activate`
 	(personally I used virtualenv: https://virtualenv.pypa.io/en/latest/)
 1. Moving into project dir:
 	`cd mycego_test`
