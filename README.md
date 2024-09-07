@@ -14,18 +14,20 @@
 
 	- For Arch, Manjaro, Artix users:
 		 (if yay not installed: 
-		 1. `sudo pacman -Syu`
-		 2. `sudo pacman -S --needed git base-devel`
-		 3. `git clone https://aur.archlinux.org/yay.git`
-		 4.  `cd yay && mkpkg -si`)
-		`yay -S python312`
+		 1. 	`sudo pacman -Syu`
+		 2. 	`sudo pacman -S --needed git base-devel`
+		 3. 	`git clone https://aur.archlinux.org/yay.git`
+		 4.  	`cd yay && mkpkg -si`
+		 )
+                  If installed:
+				`yay -S python312`
 
 	- For Ubuntu, Debian, Mint users: 
-		1. `sudo apt update && sudo apt upgrade -y`
-		2. `sudo apt install -y software-properties-common`
-		3. `sudo add-apt-repository ppa:deadsnakes/ppa`
-		4. `sudo apt update`
-		5. `sudo apt install -y python3.12`
+		1. 		`sudo apt update && sudo apt upgrade -y`
+		2. 		`sudo apt install -y software-properties-common`
+		3. 		`sudo add-apt-repository ppa:deadsnakes/ppa`
+		4. 		`sudo apt update`
+		5. 		`sudo apt install -y python3.12`
   
 - For MacOS users:
 		(if brew not installed:
@@ -90,17 +92,17 @@ for MacOS users:
 	(personally I used virtualenv: https://virtualenv.pypa.io/en/latest/)
 1. Moving into project dir:
 
-	`cd mycego_test`
+		`cd mycego_test`
 5. Download packages and dependencies:
 
-
-	`pip install -r requirements.txt`
+	
+		`pip install -r requirements.txt`
 7. Running migrations for main modules:
 
-	`python manage.py migrate`
+		`python manage.py migrate`
 9. Running local server:
    
-   	`python manage.py runserver`
+   		`python manage.py runserver`
 
 	 
 
