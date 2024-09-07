@@ -93,13 +93,14 @@ for MacOS users:
 	`cd mycego_test`
 5. Download packages and dependencies:
 
+
 	`pip install -r requirements.txt`
 7. Running migrations for main modules:
 
 	`python manage.py migrate`
 9. Running local server:
    
-    `python manage.py runserver`
+   	`python manage.py runserver`
 
 	 
 
