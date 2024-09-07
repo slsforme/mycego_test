@@ -19,8 +19,9 @@
 		 3. 	`git clone https://aur.archlinux.org/yay.git`
 		 4.  	`cd yay && mkpkg -si`
 		 )
-                  If installed:
-				`yay -S python312`
+   
+   If installed:
+			`yay -S python312`
 
 	- For Ubuntu, Debian, Mint users: 
 		1. 		`sudo apt update && sudo apt upgrade -y`
@@ -32,16 +33,16 @@
 - For MacOS users:
 		(if brew not installed:
   
-  `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+ 		 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
   )
 
-  1. `brew update`
+  1.		 `brew update`
 		
-  2. `brew install python@3.12`
+  2.		 `brew install python@3.12`
 		
-  3. `export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"`
+  3. 		`export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"`
 
-  4. `source ~/.zshrc  # or source ~/.bash_profile or source ~/.bashrc`
+  4.		 `source ~/.zshrc  # or source ~/.bash_profile or source ~/.bashrc`
 	
 download pip (if it's not automatically downloaded with python):
 
